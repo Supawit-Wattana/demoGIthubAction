@@ -21,7 +21,7 @@ jobs:
   #     run: |
   #       echo Add other actions to build,
   #       echo test, and deploy your project.
-  test:
+  unit_test:
     runs-on: ubuntu-latest
     
     steps:
@@ -30,3 +30,22 @@ jobs:
       run: npm i
     - name: Run Unit Test
       run: npm test unit
+
+  api_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Npm Init
+      run: npm i
+    - name: Run API Test
+      run: npm test api
+  component_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Npm Init
+      run: npm i
+    - name: Run component Test
+      run: npm test component
