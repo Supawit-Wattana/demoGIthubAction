@@ -26,5 +26,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - name: Npm Init
+      run: npm i
     - name: Run Unit Test
       run: npm test unit
