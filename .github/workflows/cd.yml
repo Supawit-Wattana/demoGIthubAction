@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  # build:
+
+  #   runs-on: ubuntu-latest
+    
+  #   steps:
+  #   - uses: actions/checkout@v1
+  #   - name: Run a one-line script
+  #     run: echo Hello, world!
+  #   - name: Run a multi-line script
+  #     run: |
+  #       echo Add other actions to build,
+  #       echo test, and deploy your project.
+  unit_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Npm Init
+      run: npm i
+    - name: Run Unit Test
+      run: npm test unit
+
+  api_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Npm Init
+      run: npm i
+    - name: Run API Test
+      run: npm test api
+  component_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Npm Init
+      run: npm i
+    - name: Run component Test
+      run: npm test component
