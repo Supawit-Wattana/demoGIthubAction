@@ -9,18 +9,23 @@ on:
       - dev
       - main
 jobs:
-  # build:
+  build:
 
-  #   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     
-  #   steps:
-  #   - uses: actions/checkout@v1
-  #   - name: Run a one-line script
-  #     run: echo Hello, world!
-  #   - name: Run a multi-line script
-  #     run: |
-  #       echo Add other actions to build,
-  #       echo test, and deploy your project.
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: Dependency Install
+      run: npm i
+    # - name: Run a multi-line script
+    #   run: |
+    #     echo Add other actions to build,
+    #     echo test, and deploy your project.
   unit_test:
     runs-on: ubuntu-latest
     
